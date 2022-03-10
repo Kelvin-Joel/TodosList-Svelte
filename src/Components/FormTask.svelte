@@ -2,14 +2,29 @@
   let TaskInitial = {
     id: null,
     name: "",
+    description:"",
   };
-  let ListTask = [];
+  let ListTask = [
+    {
+      id: 1,
+      name: "programar",
+      description:"programar"
+    },
+    {
+      id: 2,
+      name: "limpiar la caza",
+      description:"temprano"
+    },
+  ];
 
   const HandleSubmit = () => {
-    TaskInitial.id = Date.now();
-    ListTask = [...ListTask, TaskInitial];
-
-    Clear();
+    if (TaskInitial.name !== "") {
+      TaskInitial.id = Date.now();
+      ListTask = [...ListTask, TaskInitial];
+      Clear();
+      return;
+    }
+    alert('Campos Vacios!')
   };
 
   const Clear = () => {
@@ -21,7 +36,6 @@
 
   const DeleteTask = (taskId) => {
     const FilterTask = ListTask.filter((task) => task.id !== taskId);
-    console.log(FilterTask);
     ListTask = FilterTask;
   };
 
@@ -40,7 +54,11 @@
     <label for="">Name :</label>
     <input class="form__input" type="text" bind:value={TaskInitial.name} />
     <label for="">Description :</label>
-    <input class="form__input" type="text" bind:value={TaskInitial.description} />
+    <input
+      class="form__input"
+      type="text"
+      bind:value={TaskInitial.description}
+    />
     <button class="form__button btn">Save Task</button>
   </form>
 
@@ -56,26 +74,27 @@
 </div>
 
 <style>
-  :root{
-    --border-radius:.2em;
-    --border:1px solid #ccc
+  :root {
+    --border-radius: 0.2em;
+    --border: 1px solid #ccc;
   }
-  button{
+  button {
     outline: none;
     border: none;
+    cursor: pointer;
   }
-  .conteiner{
+  .conteiner {
     width: 50%;
     margin: 50px auto;
   }
-  .conteiner__title{
+  .conteiner__title {
     text-align: center;
   }
   .form {
     width: 100%;
     border: var(--border);
     border-radius: 0.2em;
-   
+
     padding: 0.5em;
   }
   label {
@@ -97,14 +116,20 @@
     padding: 0.7em 1.5em;
     cursor: pointer;
   }
-  .list-task{
+  .list-task {
     width: 100%;
     padding: 0;
   }
-  .tasks{
+  .tasks {
     background-color: rgb(66, 66, 255);
     color: #fff;
-    padding: .8em .5em;
+    padding: 0.8em 0.5em;
     border-radius: var(--border-radius);
+  }
+  .task__btn {
+    padding: 0.7em 1em;
+    border-radius: 0.2em;
+    background-color: #fff;
+    font-weight: bold;
   }
 </style>
