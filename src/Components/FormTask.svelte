@@ -2,18 +2,18 @@
   let TaskInitial = {
     id: null,
     name: "",
-    description:"",
+    description: "",
   };
   let ListTask = [
     {
       id: 1,
       name: "programar",
-      description:"programar"
+      description: "programar",
     },
     {
       id: 2,
       name: "limpiar la caza",
-      description:"temprano"
+      description: "temprano",
     },
   ];
 
@@ -24,7 +24,7 @@
       Clear();
       return;
     }
-    alert('Campos Vacios!')
+    alert("Campos Vacios!");
   };
 
   const Clear = () => {
@@ -77,6 +77,7 @@
   :root {
     --border-radius: 0.2em;
     --border: 1px solid #ccc;
+    --colorWhite:#fff;
   }
   button {
     outline: none;
@@ -112,7 +113,7 @@
   .form__button {
     border-radius: var(--border-radius);
     background-color: orangered;
-    color: #fff;
+    color: var(--colorWhite);
     padding: 0.7em 1.5em;
     cursor: pointer;
   }
@@ -122,14 +123,14 @@
   }
   .tasks {
     background-color: rgb(66, 66, 255);
-    color: #fff;
+    color: var(--colorWhite);
     padding: 0.8em 0.5em;
     border-radius: var(--border-radius);
   }
   .task__btn {
     padding: 0.7em 1em;
     border-radius: 0.2em;
-    background-color: #fff;
+    background-color: var(--colorWhite);
     font-weight: bold;
   }
 </style>
